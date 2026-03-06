@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For Junyeong</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
   <style>
     body{
       font-family: "Georgia", serif;
@@ -63,48 +61,10 @@
       background: #f28ea6;
     }
 
-    #content{
-      display: none;
-      margin-top: 40px;
-      animation: fadeIn 1s ease;
-    }
-
-    img{
-      width: 320px;
-      max-width: 90%;
-      margin: 24px 0;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    video{
-      width: 360px;
-      max-width: 90%;
-      margin-top: 24px;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .message{
-      margin-top: 24px;
-      white-space: pre-line;
-    }
-
-    .final-line{
-      margin-top: 28px;
-      font-style: italic;
-      color: #6b4f5f;
-    }
-
     .error{
       color: #c85c5c;
       margin-top: 12px;
       display: none;
-    }
-
-    @keyframes fadeIn{
-      from {opacity: 0; transform: translateY(10px);}
-      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
@@ -119,56 +79,17 @@
     </div>
 
     <p id="error" class="error">비밀번호가 맞지 않아.</p>
-
-    <div id="content">
-      <h1 id="typing"></h1>
-
-      <p class="message">
-수료 축하해.<br>
-그동안 정말 고생 많았어.
-      </p>
-
-      <img src="photo1.jpg" alt="photo">
-
-      <video controls>
-        <source src="video.mp4" type="video/mp4">
-        브라우저가 영상을 지원하지 않습니다.
-      </video>
-
-      <p class="final-line">
-        이 페이지는 네가 찾은 꽃 세 송이가 열어준 거야.
-      </p>
-    </div>
   </div>
 
   <script>
-    let typedStarted = false;
-
     function check(){
-      const pw = document.getElementById("pw").value;
-      const content = document.getElementById("content");
+      const pw = document.getElementById("pw").value.trim();
       const error = document.getElementById("error");
 
       if(pw === "TDM20260407"){
-        content.style.display = "block";
-        error.style.display = "none";
-
-        if(!typedStarted){
-          typedStarted = true;
-          new Typed('#typing', {
-            strings: [
-              "준영에게",
-              "훈련소 수료 축하해.",
-              "그동안 정말 고생 많았어."
-            ],
-            typeSpeed: 60,
-            backSpeed: 0,
-            showCursor: false
-          });
-        }
+        window.location.href = "secret.html";
       } else {
         error.style.display = "block";
-        content.style.display = "none";
       }
     }
   </script>
